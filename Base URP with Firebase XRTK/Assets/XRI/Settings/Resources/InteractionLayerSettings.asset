@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LayerNames:
   - Default
-  - 
-  - 
-  - 
-  - 
+  - Red Box
+  - Green Box
+  - Blue Box
+  - Yellow Box
   - 
   - 
   - 
