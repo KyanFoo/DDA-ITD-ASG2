@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-    public GameObject DelayAction;
     public void Update()
     {
         Invoke("SelfDestruct", 5.0f);

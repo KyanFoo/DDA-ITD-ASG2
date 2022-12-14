@@ -28,9 +28,10 @@ public class MeshDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (BladeEnter == true && BladeExit == true)
         {
-            //DestroyMesh();
+            Debug.Log("Cut Mesh");
+            DestroyMesh();
         }
     }
 
@@ -306,26 +307,30 @@ public class MeshDestroy : MonoBehaviour
         }
 
     }
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.tag == "Blade")
+        if (collider.gameObject.tag == "Blade")
         {
             BladeEnter = true;
-
-            Invoke("SetBladeEnterBack", 1.0f);
+            Debug.Log("Trigger Enter");
+            //Change Color (Testing)
+            //gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            Invoke("SetBladeEnterBack", 0.6f);
         }
     }
     private void SetBladeEnterBack()
     {
         BladeEnter = false;
     }
-    void OnCollisionExit(Collision collision)
+    void OnTriggerExit(Collider collider)
     {
-        if (collision.gameObject.tag == "Blade")
+        if (collider.gameObject.tag == "Blade")
         {
             BladeExit = true;
-
-            Invoke("SetBladeExitBack", 1.0f);
+            Debug.Log("Trigger Exit");
+            //Change Color (Testing)
+            //gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+            Invoke("SetBladeExitBack", 0.6f);
         }
     }
     private void SetBladeExitBack()
